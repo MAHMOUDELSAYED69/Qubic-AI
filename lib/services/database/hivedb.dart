@@ -1,24 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
-part 'hive.g.dart';
 
-@HiveType(typeId: 0)
-class Message extends HiveObject {
-  @HiveField(0)
-  final String uid;
-  @HiveField(1)
-  final bool isUser;
-  @HiveField(2)
-  final String message;
-  @HiveField(3)
-  final String timestamp;
-
-  Message({
-    required this.uid,
-    required this.isUser,
-    required this.message,
-    required this.timestamp,
-  });
-}
+import '../../model/hive.dart';
 
 class HiveDb {
   static final HiveDb _instance = HiveDb._internal();
@@ -30,15 +12,18 @@ class HiveDb {
   HiveDb._internal();
 
   Future<void> initializeDatabase() async {
-    Hive.registerAdapter(MessageAdapter());
     await Hive.initFlutter();
+    Hive.registerAdapter(MessageAdapter());
+    Hive.registerAdapter(ChatSessionAdapter());
 
     await Hive.openBox<Message>('messages');
+    await Hive.openBox<ChatSession>('chat_sessions');
   }
 
   Future<void> deleteAndRecreateDatabase() async {
     await Hive.close();
     await Hive.deleteBoxFromDisk('messages');
+    await Hive.deleteBoxFromDisk('chat_sessions');
 
     await initializeDatabase();
   }
