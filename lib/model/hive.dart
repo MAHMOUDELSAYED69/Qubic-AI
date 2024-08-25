@@ -23,11 +23,11 @@ class Message extends HiveObject {
 @HiveType(typeId: 1)
 class ChatSession extends HiveObject {
   @HiveField(0)
-  late final int chatId ;
+  final int chatId;
   @HiveField(1)
   final String createdAt;
   @HiveField(2)
-  final List<Message> messages; 
+  final List<Message> messages;
 
   ChatSession({
     required this.chatId,
@@ -35,5 +35,5 @@ class ChatSession extends HiveObject {
     this.messages = const [],
   });
 
-  int get messageCount => messages.length; 
+  int get messageCount => messages.length;
 }
