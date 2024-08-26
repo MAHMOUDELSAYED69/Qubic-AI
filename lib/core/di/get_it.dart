@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:qubic_ai/features/viewmodel/validation/formvalidation_cubit.dart';
+import 'package:qubic_ai/features/viewmodel/validation/validation_cubit.dart';
 
 import '../../features/viewmodel/chat/chat_bloc.dart';
 import '../repositories/message_repository.dart';

@@ -7,7 +7,7 @@ import 'package:qubic_ai/app/themes/app_theme.dart';
 
 import '../core/di/get_it.dart';
 import '../features/viewmodel/chat/chat_bloc.dart';
-import '../features/viewmodel/validation/formvalidation_cubit.dart';
+import '../features/viewmodel/validation/validation_cubit.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
