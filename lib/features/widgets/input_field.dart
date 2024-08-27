@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_indicator/loading_indicator.dart';
+import 'package:qubic_ai/core/services/database/hivedb.dart';
 import 'package:qubic_ai/core/utils/extentions/extentions.dart';
-import 'package:qubic_ai/features/widgets/toast.dart';
 
 import '../../core/di/get_it.dart';
 import '../../core/utils/constants/colors.dart';
@@ -18,7 +18,7 @@ class BuildInputField extends StatefulWidget {
       required this.isChatHistory});
   final ChatAIBloc generativeAIBloc;
   final bool isLoading;
-  final int chatId;
+  final int? chatId;
   final bool isChatHistory;
 
   @override
@@ -40,7 +40,7 @@ class _BuildInputFieldState extends State<BuildInputField> {
         StreamDataEvent(
           prompt: _textInputFieldController.text.trim(),
           isUser: true,
-          chatId: widget.chatId,
+          chatId: widget.chatId ?? 0,
         ),
       );
       _textInputFieldController.clear();
@@ -53,9 +53,9 @@ class _BuildInputFieldState extends State<BuildInputField> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          right: 10,
-          left: 10,
-          bottom: MediaQuery.of(context).viewInsets.bottom + 10),
+          right: 9.w,
+          left: 9.w,
+          bottom: MediaQuery.of(context).viewInsets.bottom + 10.h),
       child: TextField(
         minLines: 1,
         maxLines: 4,
@@ -68,11 +68,11 @@ class _BuildInputFieldState extends State<BuildInputField> {
         controller: _textInputFieldController,
         textDirection:
             _validationCubit.getFieldDirection(_textInputFieldController.text),
-        onSubmitted: (_) => _sendMessage(),
+        onSubmitted: (_) => !widget.isLoading ? _sendMessage() : null,
         decoration: InputDecoration(
           hintText: 'Write Your Message..',
           suffixIcon: Padding(
-            padding: const EdgeInsets.all(6),
+            padding: EdgeInsets.all(5.w),
             child: IconButton(
               style: IconButton.styleFrom(
                 backgroundColor: widget.isLoading
@@ -81,7 +81,7 @@ class _BuildInputFieldState extends State<BuildInputField> {
                         ? ColorManager.grey
                         : ColorManager.white,
               ),
-              onPressed: () => _sendMessage(),
+              onPressed: () => !widget.isLoading ? _sendMessage() : null,
               icon: widget.isLoading
                   ? const SizedBox(
                       height: 25,
@@ -98,27 +98,15 @@ class _BuildInputFieldState extends State<BuildInputField> {
             ),
           ),
           prefixIcon: Padding(
-            padding: const EdgeInsets.all(6),
+            padding: EdgeInsets.all(5.w),
             child: !widget.isChatHistory
-                ? BlocListener<ChatAIBloc, ChatAIState>(
-                    bloc: widget.generativeAIBloc,
-                    listener: (context, state) {
-                      if (state is NewChatSessionCreated) {
-                        // showToastFromTop(message: "New chat session created!");
-                      }
-                      if (state is ChatAIFailure) {
-                        // showToastFromTop(
-                        //     message: "Failed to create chat session!");
-                      }
-                    },
-                    child: IconButton(
-                      onPressed: () => widget.generativeAIBloc
-                          .add(CreateNewChatSessionEvent()),
-                      icon: const Icon(
-                        Icons.add,
-                        color: ColorManager.white,
-                        size: 25,
-                      ),
+                ? IconButton(
+                    onPressed: () => widget.generativeAIBloc
+                        .add(CreateNewChatSessionEvent()),
+                    icon: const Icon(
+                      Icons.add,
+                      color: ColorManager.white,
+                      size: 25,
                     ),
                   )
                 : null,
