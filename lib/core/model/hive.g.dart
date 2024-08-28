@@ -62,7 +62,7 @@ class ChatSessionAdapter extends TypeAdapter<ChatSession> {
     return ChatSession(
       chatId: fields[0] as int,
       createdAt: fields[1] as String,
-      messages: (fields[2] as List).cast<Message>(),
+      messages: (fields[2] as List?)?.cast<Message>(),
     );
   }
 

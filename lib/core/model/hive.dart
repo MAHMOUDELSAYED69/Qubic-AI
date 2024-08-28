@@ -32,8 +32,8 @@ class ChatSession extends HiveObject {
   ChatSession({
     required this.chatId,
     required this.createdAt,
-    this.messages = const [],
-  });
+    List<Message>? messages,
+  }) : messages = messages ?? [];
 
   int get messageCount => messages.length;
 }
