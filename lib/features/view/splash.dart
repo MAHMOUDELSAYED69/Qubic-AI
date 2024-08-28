@@ -18,6 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    
     goToNextScreen();
   }
 
@@ -28,24 +29,27 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(toolbarHeight: 0),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Stack(
+          alignment: Alignment.center,
           children: [
             Image.asset(
               ImageManager.logo,
               width: 100.w,
               height: 100.w,
             ),
-            SizedBox(height: 30.h),
-            ColorizeAnimatedText(
-              "Qubic AI",
-              speed: const Duration(milliseconds: 500),
-              textStyle: context.textTheme.bodyLarge!.copyWith(
-                fontSize: 30.0.sp,
+            Positioned(
+              bottom: 50.h,
+              child: ColorizeAnimatedText(
+                "Qubic AI",
+                speed: const Duration(milliseconds: 500),
+                textStyle: context.textTheme.bodyLarge!.copyWith(
+                  fontSize: 30.0.sp,
+                ),
+                colors: ColorManager.colorizeColors,
               ),
-              colors: ColorManager.colorizeColors,
             ),
           ],
         ),

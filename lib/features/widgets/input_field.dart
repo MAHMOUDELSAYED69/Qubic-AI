@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import 'package:qubic_ai/core/services/database/hivedb.dart';
 import 'package:qubic_ai/core/utils/extentions/extentions.dart';
 
 import '../../core/di/get_it.dart';
