@@ -24,13 +24,16 @@ class AiBubble extends StatefulWidget {
 class _AiBubbleState extends State<AiBubble> {
   bool _isShowDateTime = false;
   final _validationCubit = getIt<ValidationCubit>();
+  void _showDate() {
+    _isShowDateTime = !_isShowDateTime;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        _isShowDateTime = !_isShowDateTime;
-        setState(() {});
-      },
+      onTap: _showDate,
+      onDoubleTap: _showDate,
       child: Padding(
         padding: EdgeInsets.only(left: 12.w, top: 7.h, bottom: 7.h),
         child: Column(
@@ -107,13 +110,16 @@ class UserBubble extends StatefulWidget {
 class _UserBubbleState extends State<UserBubble> {
   bool _isShowDateTime = false;
   final _validationCubit = getIt<ValidationCubit>();
+  void _showDate() {
+    _isShowDateTime = !_isShowDateTime;
+    setState(() {});
+  } 
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        _isShowDateTime = !_isShowDateTime;
-        setState(() {});
-      },
+      onTap: _showDate,
+      onDoubleTap: _showDate,
       child: Padding(
         padding: EdgeInsets.only(right: 12.w, top: 7.h, bottom: 7.h),
         child: Column(
@@ -132,11 +138,13 @@ class _UserBubbleState extends State<UserBubble> {
                 ),
                 child: TextSelectionTheme(
                   data: context.theme.textSelectionTheme,
-                  child: FormattedText(widget.message,
-                      textDirection:
-                          _validationCubit.getTextDirection(widget.message)!,
-                      textAlign: TextAlign.start,
-                      style: context.textTheme.bodySmall),
+                  child: SelectionArea(
+                    child: FormattedText(widget.message,
+                        textDirection:
+                            _validationCubit.getTextDirection(widget.message)!,
+                        textAlign: TextAlign.start,
+                        style: context.textTheme.bodySmall),
+                  ),
                 ),
               ),
               SizedBox(height: 5.h),
