@@ -101,7 +101,7 @@ class _BuildInputFieldState extends State<BuildInputField> {
             padding: EdgeInsets.all(5.w),
             child: !widget.isChatHistory
                 ? IconButton(
-                    onPressed: () => widget.generativeAIBloc
+                    onPressed: () => widget.generativeAIBloc 
                         .add(CreateNewChatSessionEvent()),
                     icon: const Icon(
                       Icons.add,
