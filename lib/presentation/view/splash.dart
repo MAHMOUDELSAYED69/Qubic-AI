@@ -5,7 +5,7 @@ import 'package:qubic_ai/core/utils/constants/routes.dart';
 import 'package:qubic_ai/core/utils/extentions/extentions.dart';
 
 import '../../core/utils/constants/images.dart';
-import '../widgets/animation/colorize_text_animation.dart';
+import 'widgets/animation/colorize_text_animation.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qubic_ai/core/di/get_it.dart';
-import 'package:qubic_ai/features/viewmodel/chat/chat_bloc.dart';
-import 'package:qubic_ai/features/widgets/empty_body.dart';
+import 'package:qubic_ai/presentation/viewmodel/chat/chat_bloc.dart';
+import 'package:qubic_ai/presentation/view/widgets/empty_body.dart';
 import '../../core/utils/constants/images.dart';
 import '../viewmodel/validation/validation_cubit.dart';
-import '../widgets/build_dismissable.dart';
-
+import 'widgets/build_dismissable.dart';
+ 
 class HistoryScreen extends StatelessWidget {
   HistoryScreen({super.key});
-
+  
   final _chatAIBloc = getIt<ChatAIBloc>();
   final _validationCubit = getIt<ValidationCubit>();
   @override

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qubic_ai/core/di/get_it.dart';
 import 'package:qubic_ai/core/utils/extentions/extentions.dart';
-import 'package:qubic_ai/features/viewmodel/chat/chat_bloc.dart';
+import 'package:qubic_ai/presentation/viewmodel/chat/chat_bloc.dart';
 
 import '../../core/utils/constants/colors.dart';
 import '../../core/utils/constants/images.dart';

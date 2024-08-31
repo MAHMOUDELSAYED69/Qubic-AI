@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:formatted_text/formatted_text.dart';
 import 'package:qubic_ai/core/utils/extentions/extentions.dart';
-import 'package:qubic_ai/features/viewmodel/validation/validation_cubit.dart';
+import 'package:qubic_ai/presentation/viewmodel/validation/validation_cubit.dart';
 
-import '../../core/di/get_it.dart';
-import '../../core/utils/constants/colors.dart';
+import '../../../core/di/get_it.dart';
+import '../../../core/utils/constants/colors.dart';
 
 class AiBubble extends StatefulWidget {
   const AiBubble({

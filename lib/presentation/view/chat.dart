@@ -4,10 +4,10 @@ import 'package:qubic_ai/core/utils/constants/colors.dart';
 import 'package:qubic_ai/core/utils/constants/images.dart';
 import 'package:qubic_ai/core/utils/helper/snackbar.dart';
 import '../viewmodel/chat/chat_bloc.dart';
-import '../widgets/build_chat_list_view.dart';
-import '../widgets/empty_body.dart';
-import '../widgets/floating_action_button.dart';
-import '../widgets/input_field.dart';
+import 'widgets/build_chat_list_view.dart';
+import 'widgets/empty_body.dart';
+import 'widgets/floating_action_button.dart';
+import 'widgets/input_field.dart';
 
 class ChatScreen extends StatefulWidget {
   final int chatId;

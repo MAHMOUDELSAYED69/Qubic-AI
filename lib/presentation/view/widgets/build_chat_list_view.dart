@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../core/model/hive.dart';
-import '../viewmodel/chat/chat_bloc.dart';
+import '../../../core/model/hive.dart';
+import '../../viewmodel/chat/chat_bloc.dart';
 import 'bubble.dart';
 
 class BuildChatListViewBuilder extends StatelessWidget {
