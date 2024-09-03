@@ -1,3 +1,7 @@
 {
-    "cmake.sourceDirectory": "C:/flutter_projects/qubic_ai/windows/runner"
+    "cmake.sourceDirectory": "C:/flutter_projects/qubic_ai/windows/runner",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
 }
