@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
-import 'package:qubic_ai/features/viewmodel/validation/validation_cubit.dart';
+import 'package:qubic_ai/presentation/viewmodel/validation/validation_cubit.dart';
 
-import '../../features/viewmodel/chat/chat_bloc.dart';
+import '../../presentation/viewmodel/chat/chat_bloc.dart';
 import '../repositories/message_repository.dart';
 import '../services/apis/genetative_ai.dart';
 import '../services/database/hivedb.dart';
